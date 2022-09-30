@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content%}
+<div class="container">
+    {% include 'menu.html'%}
+    {% for moment in moments%}
+        <div class="row mt-4">
+            <div class="col text-center">
+                <h3 class="mb-2">{{moment.title}}</h3>
+                <p class="text-small"><span class="badge text-bg-light"><i class="bi bi-clock"></i> {{moment.create_at|date:"d/m/Y"}}</span></p>
+                <img src={{moment.photo.url}} class="img-fluid shadow-lg p-3 mb-2 bg-body rounded" alt="..." width="900" height="400">
+                {{ BASE_URL }}
+                {{moment.text|safe}}
+            </div>
+        </div>
+    {% endfor%}
+    
+    {% include 'footer.html'%}
+</div>
+{% endblock content %}

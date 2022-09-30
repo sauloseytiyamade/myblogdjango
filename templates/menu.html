@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="row">
+        <div class="col mt-2">
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                  {% if is_active == 'home'%}
+                    <a class="nav-link text-dark fw-bold" href="{% url 'home'%}">Home</a>
+                  {% else %}
+                    <a class="nav-link text-dark" href="{% url 'home'%}">Home</a>
+                  {% endif %}
+                </li>
+                <li class="nav-item">
+                  {% if is_active == 'about'%}
+                    <a class="nav-link text-dark fw-bold" href="{% url 'about'%}">Sobre</a>
+                  {% else %}
+                    <a class="nav-link text-dark" href="{% url 'about'%}">Sobre</a>
+                  {% endif %}
+                </li>
+                <li class="nav-item">
+                  {% if is_active == 'projects'%}
+                    <a class="nav-link text-dark fw-bold" href="{% url 'projects'%}">Projetos</a>
+                  {% else %}
+                    <a class="nav-link text-dark" href="{% url 'projects'%}">Projetos</a>
+                  {% endif %}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

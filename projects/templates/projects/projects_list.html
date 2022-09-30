@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %} MyBlog | Projetos {% endblock title%}
+
+{% block content%}
+<div class="container">
+    {% include 'menu.html'%}
+    <div class="row mt-4">
+        <h1 class="text-center">Sites e sistemas desenvolvidos</h1>
+        {% for values in sites_sistemas %}
+        <div class="col-sm-6">
+            <a href={{values.link}} class="text-decoration-none text-black" target="_blank">
+                <div class="card shadow-lg p-1 mb-5 mt-3">
+                    <div class="card-body">
+                        <h3 class="card-title">{{values.name}}</h3>
+                        <p class="card-text">{{values.short_description}}</p>
+                        {% for tag in values.tags%}
+                            <span class="badge bg-dark mb-2">{{tag}}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+        
+        <h1 class="text-center">Repositórios Github</h1>
+        {% for repos in github_all_repos %}
+            <div class="col-sm-6">
+                <a href={{repos.project_url}} class="text-decoration-none text-black" target="_blank">
+                    <div class="card shadow-lg p-1 mb-5 mt-3">
+                        <div class="card-body">
+                            <h3 class="card-title">{{repos.project_name}}</h3>
+                            <p class="card-text">{{repos.project_description}}</p>
+                        </div>
+                    </div>
+                </a>
+                </div>
+        {% endfor %}
+    </div>
+    {% include 'footer.html'%}
+</div>
+{% endblock content %}

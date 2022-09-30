@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block title %} MyBlog | Sobre {% endblock title%}
+
+{% block content%}
+<div class="container">
+    {% include 'menu.html'%}
+    <div class="row">
+        <div class="col-4 d-none d-sm-block text-center">
+            <img src="https://uploaddeimagens.com.br/images/003/944/032/full/1516834262025.jpg?1657924893" class="rounded-circle shadow_image img-fluid" width="150">
+            <h5 class="mt-3">Saulo Seyti Yamade</h5>
+            <span class="badge bg-dark">Redes de computadores</span>
+            <span class="badge bg-dark">Web Full Stack</span>
+            <span class="badge bg-dark">Python</span>
+            <span class="badge bg-dark">Django</span>
+            <span class="badge bg-dark mb-2">Javascript</span>
+            <p>
+                <a href="https://www.linkedin.com/in/sauloseytiyamade/" class="text-black fs-4" target="_blank"><i class="bi bi-linkedin"></i></a>
+                <a href="https://www.facebook.com/sauloseyti" class="text-black fs-4" target="_blank"><i class="bi bi-facebook"></i></a>
+            </p>
+        </div>
+        <div class="col-12 col-sm-8 p-4">
+            
+            <p>
+                Olá! Eu sou o Saulo, tenho {{my_age}} anos, sou formado em Redes de Computadores pelo IBTA (Instituto de Tecnologias Avançadas) em São José dos Campos e sou Pós-graduado em Web Full Stack pela Universidade Católica de Minas (PUC Minas).
+            </p>
+            <p>
+                Este site tem como finalidade apresentar um pouco do que eu gosto e também dos trabalhos que eu já fiz ou estou fazendo junto a comunidade.
+                É através dele que acabo divulgando o que eu acredito ser importante neste momento da minha vida.
+            </p>
+
+            <h2>Graduação / Pós-graduação</h2>
+
+            {% for graduate in graduates%}
+            <a href="{{graduate.link}}" class="text-black text-decoration-none" target="_blank">
+                <div class="card mb-2">
+                    <div class="card-body">
+                      {{graduate.name}}
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+
+            <h2 class="mt-3">Certificações</h2>
+            {% for certification in certifications%}
+            <a href="{{certification.link}}" class="text-black text-decoration-none" target="_blank">
+                <div class="card mb-2">
+                    <div class="card-body">
+                      {{certification.name}}
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+
+            <h2 class="mt-3">Trabalhos voluntários</h2>
+            {% for voluntary in voluntaries%}
+            <a href="{{voluntary.link}}" class="text-black text-decoration-none" target="_blank">
+                <div class="card mb-2">
+                    <div class="card-body">
+                      {{voluntary.name}}
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+
+            <h2 class="mt-3">Cursos</h2>
+            {% for curse in curses%}
+            <a href="{{curse.link}}" class="text-black text-decoration-none" target="_blank">
+                <div class="card mb-2">
+                    <div class="card-body">
+                      {{curse.name}}
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+    {% include 'footer.html'%}
+</div>
+{% endblock content %}
